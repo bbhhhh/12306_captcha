@@ -18,7 +18,7 @@ n_classes = 80
 initial_learning_rate = 0.1
 reduce_lr_epoch_1 = 20
 reduce_lr_epoch_2 = 30
-image_dir = "C:\\Users\\li\\Desktop\\IMAGE\\data"
+image_dir = "saves\\IMAGE\\data"
 
 
 def test_model():

@@ -53,14 +53,14 @@ def read_data(image_dir, image_shape, label_path="labels.txt"):
     return np.array(images), np.array(labels)
 
 
-def download_captcha(retry=False):
+def download_captcha(retry=False,proxies=None):
     """
     下载验证码图片
     :param retry:
     :return:
     """
     url = "https://kyfw.12306.cn/passport/captcha/captcha-image"
-    r = session.get(url, verify=False)
+    r = session.get(url, verify=False,proxies=proxies)
     if retry:
         url2 = "https://kyfw.12306.cn/passport/captcha/captcha-check?answer=129%2C122%2C175%2C132&login_site=E&rand=sjrand"
         time.sleep(3)

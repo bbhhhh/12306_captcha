@@ -9,8 +9,9 @@ n_classes = 80
 image_shape = (64, 64, 3)
 text_model_weight = "saves/DenseNet-BC_k=12_d=40.weight"
 image_model_weight = "saves/DenseNet-BC_k=24_d=40.weight"
-save_path = "D:\IMAGE"
-save_fail_path = "D:\IMAGE\FAIL"
+save_path = "saves/IMAGE"
+save_fail_path = "saves/IMAGE/FAIL"
+proxies=['http://135.251.33.16:8080']
 
 
 def load_model():
@@ -40,7 +41,7 @@ def online_test(text_model, image_model, label_dict):
     """
 
     # 下载验证码图片到本地
-    image_path = image_utils.download_captcha()
+    image_path = image_utils.download_captcha(proxies)
     # 切割验证码为文字部分和图片部分
     raw_texts, raw_images = image_utils.process_raw_images(image_path, (image_shape[0], image_shape[1]))
 
